@@ -21,7 +21,7 @@ const ListItem: React.FC<ListItemProps> = ({
   const router = useRouter();
   const authModal = useAuthModal();
   const { user } = useUser();
-  
+
   const onClick = () => {
     if (!user) {
       return authModal.onOpen();
@@ -30,21 +30,21 @@ const ListItem: React.FC<ListItemProps> = ({
     router.push(href);
   };
 
-  return ( 
+  return (
     <button
       onClick={onClick}
       className="
-        relative 
-        group 
-        flex 
-        items-center 
-        rounded-md 
-        overflow-hidden 
-        gap-x-4 
-        bg-neutral-100/10 
-        cursor-pointer 
-        hover:bg-neutral-100/20 
-        transition 
+        relative
+        group
+        flex
+        items-center
+        rounded-md
+        overflow-hidden
+        gap-x-4
+        bg-neutral-100/10
+        cursor-pointer
+        hover:bg-neutral-100/20
+        transition
         pr-4
       "
     >
@@ -59,20 +59,20 @@ const ListItem: React.FC<ListItemProps> = ({
       <p className="font-medium truncate py-5">
         {name}
       </p>
-      <div 
+      <div
         className="
-          absolute 
-          transition 
-          opacity-0 
-          rounded-full 
-          flex 
-          items-center 
-          justify-center 
-          bg-green-500 
-          p-4 
-          drop-shadow-md 
+          absolute
+          transition
+          opacity-0
+          rounded-full
+          flex
+          items-center
+          justify-center
+          bg-sky-500
+          p-4
+          drop-shadow-md
           right-5
-          group-hover:opacity-100 
+          group-hover:opacity-100
           hover:scale-110
         "
       >
@@ -81,5 +81,5 @@ const ListItem: React.FC<ListItemProps> = ({
     </button>
    );
 }
- 
+
 export default ListItem;
