@@ -45,11 +45,11 @@ const UploadModal = () => {
   const onSubmit: SubmitHandler<FieldValues> = async (values) => {
     try {
       setIsLoading(true);
-      
+
       const imageFile = values.image?.[0];
       const songFile = values.song?.[0];
 
-      if (!imageFile || !songFile || !user) {
+      if (!imageFile || !songFile) {
         toast.error('Missing fields')
         return;
       }
@@ -57,9 +57,9 @@ const UploadModal = () => {
       const uniqueID = uniqid();
 
       // Upload song
-      const { 
-        data: songData, 
-        error: songError 
+      const {
+        data: songData,
+        error: songError
       } = await supabaseClient
         .storage
         .from('songs')
@@ -74,8 +74,8 @@ const UploadModal = () => {
       }
 
       // Upload image
-      const { 
-        data: imageData, 
+      const {
+        data: imageData,
         error: imageError
       } = await supabaseClient
         .storage
@@ -90,8 +90,8 @@ const UploadModal = () => {
         return toast.error('Failed image upload');
       }
 
-      
-      // Create record 
+
+      // Create record
       const { error: supabaseError } = await supabaseClient
         .from('songs')
         .insert({
@@ -105,7 +105,7 @@ const UploadModal = () => {
       if (supabaseError) {
         return toast.error(supabaseError.message);
       }
-      
+
       router.refresh();
       setIsLoading(false);
       toast.success('Song created!');
@@ -125,8 +125,8 @@ const UploadModal = () => {
       isOpen={uploadModal.isOpen}
       onChange={onChange}
     >
-      <form 
-        onSubmit={handleSubmit(onSubmit)} 
+      <form
+        onSubmit={handleSubmit(onSubmit)}
         className="flex flex-col gap-y-4"
       >
         <Input
@@ -146,7 +146,7 @@ const UploadModal = () => {
             Select a song file
           </div>
           <Input
-            placeholder="test" 
+            placeholder="test"
             disabled={isLoading}
             type="file"
             accept=".mp3"
@@ -159,7 +159,7 @@ const UploadModal = () => {
             Select an image
           </div>
           <Input
-            placeholder="test" 
+            placeholder="test"
             disabled={isLoading}
             type="file"
             accept="image/*"
