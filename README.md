@@ -1,4 +1,5 @@
 # Cloudify
+![cloudify](https://github.com/garydsong/Spotify-clone/assets/105745865/611e6655-53be-4aaf-857d-5e89ea97e9e5)
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
