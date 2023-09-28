@@ -95,7 +95,7 @@ const UploadModal = () => {
       const { error: supabaseError } = await supabaseClient
         .from('songs')
         .insert({
-          user_id: 1,
+          user_id: "990c75d6-3154-4144-9786-e171af23de31",
           title: values.title,
           author: values.author,
           image_path: imageData.path,
